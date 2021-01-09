@@ -1,0 +1,1022 @@
+/* #myChart{
+     height: 400px;
+     width: 400px; 
+}
+
+ */
+*{
+     font-family: 'Open Sans Hebrew';
+     box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+     width: 8px;               /* width of the entire scrollbar */
+     border-radius: 20px;
+   }
+ *::-webkit-scrollbar-thumb {
+     background-color: rgb(150,150,150);    /* color of the scroll thumb */
+     border-radius: 20px;
+     width: 8px !important; 
+     
+ }
+
+body{
+     margin:20px;
+     margin-top: 100px;
+     background-color:rgb(234,238,244);
+}
+
+.page-header{
+     
+     position: fixed;
+     right: 0;
+     height: 78px;
+     top:0;
+     width: 100%;
+     margin:0;
+     padding: 10px;
+     direction: rtl;
+     background-color: white;
+     box-shadow: 0px 5px 10px rgb(190, 190, 190);
+     z-index: 2000;
+     text-align: center;
+}
+.logo-container{
+     display: inline-flex;
+     width: fit-content;
+     
+     align-items: center;
+     float: right;
+}
+#menu-icon{
+     /* display: inline-block; */
+     position: relative;
+     width: 21px;
+     height: 21px; 
+     /* margin-top: 10px; */
+     
+     cursor: pointer;
+ }
+ #menu-icon span{
+     display: block;
+     position: absolute;
+     height: 2.3px;
+     width: 21px;
+     background: #374f60;
+     border-radius: 5px;
+ }
+ #menu-icon span:nth-child(1){
+     top:0;
+ }
+ #menu-icon span:nth-child(2){
+     top:6px;
+ }
+ #menu-icon span:nth-child(3){
+     top:12px;
+ }
+ #logo{
+     /* display: inline; */
+     width: 252px;
+     height: 48px;
+     margin-right: 15px;
+ }
+.header-title{
+     position: absolute;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+.header-title h3{
+     font-size: 1.2rem;
+     color: #24343f;
+     padding:0;
+     margin: 0;
+}
+.header-title h5{
+     font-size: .9rem;
+     color: #24343f;
+     padding:0;
+     margin: 0;
+     font-weight: 500;
+}
+
+
+
+
+
+/* ag grid */
+ .ag-header-cell-label {
+     justify-content: center;
+ }
+
+ .ag-header-cell-label .ag-header-cell-text {
+     font-weight: normal;
+     white-space: normal !important;
+     text-align: center;
+     font-size: 14px;
+ }
+
+ .ag-header-viewport{
+      background-color: rgb(230,241,243);
+ }
+ .ag-header{
+     border: none !important;
+ }
+
+ .ag-theme-alpine .ag-root-wrapper{
+      border: none !important;
+ }
+ .ag-theme-alpine .ag-row{
+     background-color: white !important;
+     border:none !important;
+
+ }
+ .ag-theme-alpine .ag-row-selected {
+     background-color: #4abbff;
+ }
+ 
+ .ag-theme-alpine .ag-cell-focus {
+     border: none !important;
+ }
+
+ .ag-theme-alpine .ag-icon-desc:before {
+      content: "small-down" !important;
+      color: #308bf6;
+      font-size: 24px;
+ }
+
+ .ag-theme-alpine .ag-icon-asc:before {
+     content: "small-up" !important;
+     color: #308bf6;
+     font-size: 24px;
+ }
+ 
+
+ /* Pie chart */
+ polyline{
+	opacity: .5;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+
+/* Hospital Status */
+.percentage-bar{
+     float: right;
+     margin-top: 15px;
+     
+}
+.percentage-bar:hover{
+     opacity: 0.4;
+     cursor: pointer;
+}
+
+
+
+
+/* General info on top */
+.container{
+     border-radius: 8px;
+     margin: 10px;
+     background-color: white;
+     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
+     overflow: hidden;
+}
+
+
+
+#general-info-container{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     margin:15px;
+     margin-bottom: 20px;
+     
+     
+}
+.general-info__item{
+     direction: rtl;
+     height: 184px;
+     width: 15%;
+     border-radius: 8px;
+     padding: 15px;
+     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
+     transition:.8s;
+     background-color: white;
+}
+
+.massive-shadow{
+     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3);
+     transition:.8s;
+}
+
+.general-info__item .title{
+     font-size: .9rem;
+     margin: 0;
+}
+
+.general-info__item .main-number{
+     font-size: 1.4rem;
+     line-height: 1.1;
+     margin:10px 0;
+}
+.general-info__item .sub-number{
+     font-size: .8rem;
+}
+.general-info__item .sub-number span{
+     padding: 0 2px;
+}
+.general-info__item .sub-number .value{
+     direction: ltr;
+     text-align: right;
+     font-weight: bold;
+}
+
+/* weekly-spread-indices */
+#weekly-spread-indices-container{
+     display: flex;
+     flex-direction: column;
+     padding: 0;
+}
+#weekly-spread-indices-container h3{
+     font-size: 20px;
+     padding: 26px;
+     margin:0;
+     text-align: center;
+     display: block;
+}
+
+/* daily info charts - general */
+.axis text{
+     font-size: 12px;
+}
+
+.axis path,
+.axis line {
+fill: none;
+stroke: #000;
+shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis line{
+display: none;
+}
+
+
+
+.daily-line {
+fill: none;
+stroke: rgb(80,203,253);
+stroke-width: 1.2px;
+}
+
+.circle {
+     fill: white;
+     stroke: rgb(80,203,253);
+     stroke-width: 2px;
+}
+
+.area {
+     /* fill: rgb(80,203,253); */
+     stroke: none;
+     opacity: 0.6;
+}
+
+
+.overlay {
+     fill: none;
+     stroke: none;
+     pointer-events: all;
+}
+
+.focusLine {
+     fill: none;
+     stroke:  rgba(0,0,0,0.7);
+     
+     stroke-width: 0.5px;
+}
+.focusLineDashed {
+     fill: none;
+     stroke: rgba(0,0,0,0.7);
+     
+     stroke-width: 0.5px;
+     stroke-dasharray: 5;
+}
+
+.focusCircle {
+     fill: rgb(80,203,253);
+}
+
+.focusLabel{
+     font-size:12px;
+}
+.focusLabelBox{
+     height:22px;
+     
+     fill:white;
+     stroke:#ccc;
+     
+}
+.axisX-label{
+     font-size:14px;
+     fill:rgba(0,0,0,0.8);
+}
+.axisY-label{
+     font-size:12px;
+     fill:rgba(0,0,0,0.8);
+}
+
+
+.daily-trend-button{
+     position: absolute;
+     /* bottom: 12px; */
+     box-shadow: none;
+     padding: 0;
+     display: flex;
+     align-items: center;
+     border:none;
+     outline:none;
+     background-color: transparent;
+     font-size: 15px;
+     margin-top: 30px;
+     /* color: ; */
+     
+}
+.daily-trend-button:hover{
+     cursor: pointer;
+}
+
+.daily-trend-button span{
+     margin-right: 5px;
+}
+.daily-trend-icon{
+     height: 28px;
+     width: 28px;
+     border-radius: 50%;
+     border:1px solid #ccc;
+     background-size: 14px;
+     background-repeat: no-repeat;
+     background-position: center;
+     
+}
+.daily-trend-icon.close{
+     background-image: url('./media/bar-chart-black.svg');
+     opacity: 0.8;
+     transition:.8s;
+}
+.daily-trend-icon.open{
+     /* background-color: red; */
+     background-image: url('./media/bar-chart-white.svg');
+     transition:.8s;
+}
+
+
+
+/* Arrow Box - daily trend */
+.arrow_box {
+	position: absolute;
+	background: #fff;
+     /* border: 4px solid blue; */
+     width:fit-content;
+     padding:10px;
+     border-radius: 8px;
+     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+}
+.arrow_box:after, .arrow_box:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+     pointer-events: none;
+     
+}
+
+.arrow_box:after {
+	border-color: rgba(0, 0, 0, 0);
+	border-bottom-color: white;
+	border-width: 8px;
+	margin-left: -8px;
+}
+.arrow_box:before {
+	border-color: rgba(94, 94, 94, 0);
+	border-bottom-color: rgba(189, 189, 189,0.5);
+	border-width: 11px;
+     margin-left: -11px;
+     
+}
+.daily-chart-title{
+     direction: rtl;
+     padding: 15px;
+     padding-bottom: 0;
+     margin:0;
+     font-size: 1.125rem;
+}
+
+/* goverment goals */
+.government-goals-container{
+     display: flex;
+     flex-direction: row-reverse;
+     align-items: center;
+     margin: 0 0 0 5px;
+     padding: 0;
+     text-align: left;
+     position: absolute;
+     padding-top: 30px;
+     padding-left: 20px;
+     font-size: 14px;
+}
+.government-goals-container .dashed-line{
+     width: 30px;
+     display: flex;
+     justify-content: space-between;
+}
+.government-goals-container .dashed-line .line{
+     width: 10px;
+     height: 0;
+     opacity: .7;
+     border: 1px solid #f0465e;
+}
+.government-goals-container .square{
+     width: 15px;
+     height: 15px;
+     background-color: #f0465e;
+     margin-left: 5px;
+}
+
+/* select dropdown */
+select,option{
+     position: absolute;
+     margin-top: 15px;
+     margin-left: 30px;
+     direction: rtl;
+     border-radius: 15px;
+     font-size: 14px;
+     font-weight: 700;
+     padding: 5px;
+     padding-right: 8px;
+     background-color: rgb(247,249,252);
+     border-color: rgb(228,233,242);
+     color:rgba(0,0,0,0.8);
+     
+}
+select:hover{
+     cursor: pointer;
+     background-color: rgb(237,241,247);
+}
+select:focus{
+     outline: none;
+     border-color: blue;
+}
+option:hover{
+     cursor: pointer;
+     background-color: rgb(237,241,247);
+}
+
+
+#weekly-spread-indices{
+     display: flex;
+     padding: 0;
+     height: 300px;
+}
+
+.weekly-spread-indices__item{
+     flex:1;
+     width: .3333%;
+     border:1px solid rgba(185, 185, 185,0.7);
+     border-left: none;
+     border-right: none;
+     
+}
+#critical-cases-container{
+     border:1px solid rgb(185, 185, 185,0.7);
+}
+.weekly-spread-indices__item .title{
+     font-size: 14px;
+     margin: 0;
+     padding: 10px 15px 0;
+     text-align: right;
+
+}
+
+/* note banner */
+.note-banner-container{
+     display: flex;
+     flex-direction: row-reverse;
+     background-color: rgb(230,241,244);
+     width: fit-content;
+     margin-right: 10px;
+     margin-left: auto;
+     margin-top: 5px;
+     padding-left: 10px;
+     border-radius: 10px;
+     font-size: 12px;
+     text-align: right;
+     line-height: 1.9;
+     
+}
+.note-icon{
+     display: inline-block;
+    width: .9rem;
+    height: .9rem;
+    font-size: .8rem;
+    margin: 5px;
+    background-color: #14212b;
+    color: #fff;
+    opacity: .85;
+    text-align: center;
+    line-height: 1.1;
+    border-radius: 50%;
+    
+}
+
+/* Second Row */
+.row{
+     display: flex;
+     padding:0;
+     margin:10px;
+}
+
+#serious-cases-container{
+     width: 40%;
+     margin-left: 0;
+}
+
+#epidemic-curve-container{
+     width: 60%;
+     margin-right: 0;
+}
+
+/* Charts Headers */
+
+.chart-title{
+     font-size: 15px;
+     margin: 0;
+     padding: 10px 15px 0;
+     text-align: right;
+}
+.legends-container{
+     font-size: .9rem;
+     display: flex;
+     flex-direction: row-reverse;
+     flex-flow: row;
+     flex-wrap: wrap;
+     margin-right: 10px;
+     margin-left: auto;
+     margin-top:5px;
+     direction: rtl;
+}
+.legend-item{
+     display: flex;
+     align-items:center;
+     margin:0 6px;
+     white-space: nowrap;
+     
+}
+.legend-circle{
+     margin: 0 2px;
+     width: 8px;
+     height: 8px;
+     padding: 5px;
+     display: inline-block;
+     border-radius: 50%;
+
+     background-color: greenyellow;
+}
+
+.legend-label{
+     display: flex;
+     flex-flow: column;
+     line-height: 1.4em;
+     
+}
+
+
+/* contagious details */
+.contagious-details-note{
+     width: fit-content;
+     background-color: rgb(230,241,244);
+     direction: rtl;
+     margin-left: auto;
+     margin-right: 15px;
+     line-height: 1.6;
+}
+
+.contagious-details-note img{
+     padding-right: 5px;
+     vertical-align: middle;
+}
+.contagious-details-note span{
+     font-size: 10px;
+     padding-right: 5px;
+     padding-left: 5px;
+     font-weight: bold;
+}
+
+
+/* Third Row */
+#age-gender-container{
+     width: 33%;
+     margin-right: 0;
+}
+
+#spreading-areas-container{
+     width: 67%;
+     margin-left: 0;
+}
+
+/* Fourth Row */
+#tests-to-locate-patients-container{
+     width:35%;
+     
+     overflow: hidden;
+     margin-left: 0;
+}
+
+#hospital-status-container{
+     width:40%;
+}
+
+#staff-in-isolation-container{
+     width:25%;
+     overflow: hidden;
+     margin-right: 0;
+}
+#staffInIsolation{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+#staffInIsolationPie {
+     /* width:100%; */
+ }
+
+
+
+
+ @media (max-width: 1400px){
+      #general-info-container{
+           flex-direction: row-reverse;
+      }
+      #general-info-container :nth-child(1) { order: 6; }
+      #general-info-container :nth-child(2) { order: 5; }
+      #general-info-container :nth-child(3) { order: 4; }
+      #general-info-container :nth-child(4) { order: 3; }
+      #general-info-container :nth-child(5) { order: 2; }
+      #general-info-container :nth-child(6) { order: 1; }
+     
+     
+     .general-info__item{
+          width: 32%;
+          margin-bottom: 20px;    
+     }
+     .daily-trend-button{
+          direction: ltr;
+     }
+
+
+     /* Third Row */
+     #third-row{
+          display: flex;
+          flex-direction: column-reverse;
+     }
+     #age-gender-container{
+          width: 50%;
+          margin-right: 0;
+          margin-left: auto;
+          margin-bottom: 20px;
+     }
+     
+     #spreading-areas-container{
+          width: 60%;
+          margin-right: 0;
+          margin-left: auto;
+     }
+     
+     /* Fourth Row */
+     #fourth-row{
+          flex-wrap: wrap;
+          flex-direction: row-reverse;
+          justify-content: end;
+          align-content: flex-end;
+     }
+
+     #tests-to-locate-patients-container{
+          width:50%;
+          order: 3;
+          margin-right: 0;
+     }
+     
+     #hospital-status-container{
+          width:47%;
+          order: 2;
+     }
+     
+     #staff-in-isolation-container{
+          width:50%;
+          order: 1;
+     }
+
+ }
+
+@media (max-width: 1200px){
+     .row{
+          margin-right:0;
+          margin-left: 0;
+          
+     }
+     #second-row{
+          flex-wrap: wrap;
+     }
+     #epidemic-curve-container{
+          width: 100%;
+          order: 1;
+          margin:10px;
+     }
+     #serious-cases-container{
+          width: 100%;
+          order:2;
+          margin-left: 10px;
+     }
+     #spreading-areas-container{
+          width: 100%;
+          margin: 10px;
+          margin-left: 0;
+          
+     }
+     #age-gender-container{
+          margin-right:10px;
+     }
+     #hospital-status-container{
+          width:100%;
+     }
+     #tests-to-locate-patients-container{
+          margin: 10px;
+     }
+     #staff-in-isolation-container{
+          margin: 10px;
+     }
+}
+
+@media (max-width: 992px){
+     body{
+          margin: 10px;
+          margin-top: 160px;
+     }
+     .page-header{
+          height: 132px;
+     }
+     .header-title{
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          text-align: right;
+          margin-top:20px;
+     }
+     .header-title h3{
+          font-size: 13px;
+          color: #24343f;
+          padding:0;
+          margin: 0;
+     }
+     .header-title h5{
+          font-size: 10px;
+          color: #24343f;
+          padding:0;
+          margin: 0;
+          font-weight: 500;
+     }
+     
+
+     .row{
+          margin-top:0;
+          margin-bottom: 0;
+     }
+     .container{
+          margin: 0;
+     }
+     #weekly-spread-indices-container,
+     #epidemic-curve-container,
+     #serious-cases-container,
+     #age-gender-container,
+     #spreading-areas-container,
+     #staff-in-isolation-container,
+     #tests-to-locate-patients-container,
+     #hospital-status-container{
+          margin:15px 0;
+     }
+
+
+
+
+     #general-info-container{
+          margin: 15px 0;
+          margin-bottom: 0;
+     }
+     .general-info__item{
+          width: 49%;
+          
+     }
+     #weekly-spread-indices{
+          flex-direction: column-reverse;
+          height: auto;
+     }
+     .weekly-spread-indices__item{
+          width: 100%;
+     }
+     #age-gender-container{
+          width: 100%;
+     }
+     #staff-in-isolation-container{
+          width: 100%;
+     }
+     #tests-to-locate-patients-container{
+          width: 100%;
+     }
+
+     /* Tables - ag-grid */
+     .ag-header-cell-label .ag-header-cell-text,
+     .ag-cell{
+          font-size: 13px;
+     }
+     .ag-theme-alpine.ag-header-cell, .ag-theme-alpine.ag-header-group-cell{
+          padding: 0;
+     }
+     .ag-header-cell.ag-focus-managed.ag-header-cell-sortable,
+     .ag-theme-alpine.ag-cell, .ag-theme-alpine.ag-row>.ag-cell-wrapper{
+          padding: 0;
+     }
+}
+
+
+@media (max-width: 550px){
+     body{
+          margin:5px;
+          margin-top: 160px;
+     }
+
+     .government-goals-container{
+          position: relative;
+          float: none;
+          margin: 0 auto;
+          padding: 0;
+          padding-bottom: 10px;
+     }
+
+     .legends-container{
+          margin-top: 20px;
+     }
+     select,option{
+          margin-top: 10px;
+          margin-left: 15px;
+          font-size: 11px;        
+     }
+
+
+
+
+     /* Tables */
+     .ag-header-cell-label .ag-header-cell-text,
+     .ag-cell{
+          font-size: 11px;
+          
+          line-height: normal;
+          word-break: normal;
+     }
+     .ag-theme-alpine.ag-header-cell, .ag-theme-alpine.ag-header-group-cell{
+          padding: 0;
+          line-height: normal;
+          word-break: normal;
+     }
+
+     .ag-cell.ag-cell-not-inline-editing.ag-cell-auto-height.ag-cell-value.ag-cell-wrap-text{
+          padding: 0;
+          
+          line-height: normal;
+          word-break: normal;
+     }
+     .ag-header-row.ag-header-row-column,.ag-header{
+          height: 80px !important;
+     }
+     .ag-header-row{
+          position: static !important;
+     }
+
+     .percentage-bar {
+          float: none;
+     }
+}
+
+@media (max-width: 420px){
+     .arrow_box{
+          left:10px !important;
+          /* width: calc(100vw - 5px) !important; */
+     }
+     .arrow_box:after {
+          margin-left: 0px;
+     }
+     .arrow_box:before {
+          margin-left: -3px;
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Open Sans Hebrew (Hebrew) http://www.google.com/fonts/earlyaccess
+ */
+ @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: italic;
+    font-weight: 300;
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-LightItalic.eot);
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-LightItalic.eot?#iefix) format('embedded-opentype'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-LightItalic.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-LightItalic.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-LightItalic.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: normal;
+    font-weight: 300;
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Light.eot);
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Light.eot?#iefix) format('embedded-opentype'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Light.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Light.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Light.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: italic;
+    font-weight: 400;
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Italic.eot);
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Italic.eot?#iefix) format('embedded-opentype'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Italic.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Italic.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Italic.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: normal;
+    font-weight: 400;
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Regular.eot);
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Regular.eot?#iefix) format('embedded-opentype'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Regular.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Regular.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Regular.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: italic;
+    font-weight: 700;
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-BoldItalic.eot);
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-BoldItalic.eot?#iefix) format('embedded-opentype'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-BoldItalic.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-BoldItalic.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-BoldItalic.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: normal;
+    font-weight: 700;
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Bold.eot);
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Bold.eot?#iefix) format('embedded-opentype'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Bold.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Bold.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-Bold.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: italic;
+    font-weight: 800;
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBoldItalic.eot);
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBoldItalic.eot?#iefix) format('embedded-opentype'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBoldItalic.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBoldItalic.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBoldItalic.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: normal;
+    font-weight: 800;
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBold.eot);
+    src: url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBold.eot?#iefix) format('embedded-opentype'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBold.woff2) format('woff2'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBold.woff) format('woff'),
+         url(//fonts.gstatic.com/ea/opensanshebrew/v3/OpenSansHebrew-ExtraBold.ttf) format('truetype');
+  }
+   

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="http://www.google.com/fonts/earlyaccess"> -->
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <section class='page-header'>
+        <div class="logo-container">
+            <div id="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img id='logo' src="./media/logo_DAshboard-01.png" alt="logo">    
+        </div>
+        
+        <div class="header-title">
+            <h3>נגיף הקורונה בישראל - תמונת מצב כללית</h3>
+            <h5>עדכון אחרון: 26 בנובמבר 2020 | 09:54</h5>
+        </div>
+
+    </section>
+    
+
+        <div id="general-info-container">
+            
+        </div>
+        
+        <div id="weekly-spread-indices-container" class="container">
+            <h3>מדדי התפשטות בהסתכלות שבועית</h3>
+
+            <!-- Government goals  -->
+            <div class="government-goals-container">
+                <div class="dashed-line">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="square"></div>
+                יעדי הממשלה
+            </div>
+
+            <div id="weekly-spread-indices" height="300px">
+                <div id="new-cases-container" class="weekly-spread-indices__item">
+                    <h6 class="title">מספר המאומתים החדשים <u>מחוץ</u> לאזורי ההתפשטות</h6>
+                    
+                    <!-- Note banner-->
+                    <div class="note-banner-container">
+                        <span class="note-icon">i</span>
+                        הנתונים אינם כוללים מאומתים מישובים אדומים, מוסדות גריאטריים וחוזרים מחו"ל
+                    </div>
+
+
+                    <div height="250px">
+                        <canvas id="newCasesChart"></canvas>
+                    </div>
+                    
+                </div>
+                <div id="critical-cases-container" class="weekly-spread-indices__item">
+                    <h6 class="title">מספר החולים קשה</h6>
+                    <div height="250px">
+                        <canvas id="criticalCasesChart" ></canvas>
+                    </div>
+                    
+                </div>
+                <div id="new-cases-trend-container" class="weekly-spread-indices__item">
+                    <h6 class="title">מגמת שינוי במאומתים חדשים וקצב הכפלה</h6>
+                     <!-- Note banner-->
+                     <div class="note-banner-container">
+                        <span class="note-icon">i</span>
+                        שינוי בממוצע מאומתים חדשים שבועי, ומספר הימים להכפלת הנדבקים (בסוגריים) %
+                    </div>
+
+                    <div height="230px">
+                        <canvas id="newCasesTrendChart" ></canvas>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div id="second-row" class="row">
+            <div id="serious-cases-container" class="container">
+                <h6 class="chart-title">חולים קשה ומונשמים</h6>
+                <div class="legends-container">
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color: rgb(182, 202, 81);"></span>
+                        <div class="legend-label">חולים קשה</div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color: rgb(80, 203, 253);"></span>
+                        <div class="legend-label">מונשמים</div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color: rgb(35, 125, 125);"></span>
+                        <div class="legend-label">נפטרים</div>
+                    </div>
+                </div>
+                
+                <div height="250px">
+                    <canvas id="seriousCasesChart"></canvas>
+                </div>
+            </div>
+
+            <div id="epidemic-curve-container" class="container">
+                <h6 class="chart-title">עקומה אפידמית</h6>
+                
+                <!-- legends -->
+                <div class="legends-container">
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color: rgb(28, 125, 126);"></span>
+                        <div class="legend-label">מאומתים חדשים</div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color: rgb(137, 137, 137);"></span>
+                        <div class="legend-label">מחלימים חדשים</div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color: rgb(72, 202, 255);"></span>
+                        <div class="legend-label">מאומתים מצטבר</div>
+                    </div>
+                </div>
+
+                <!-- note -->
+                <div class="contagious-details-note">
+                    <img src="./media/increment.svg">
+                    <span> מספר הנדבקים היום הינו כפול מהמספר לפני 56 ימים</span>
+                </div>
+
+                <div height="246px">
+                    <canvas id="epidemicCurveChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Row -->
+        <div id="third-row" class="row">
+            <div id="spreading-areas-container" class="container">
+                <div id="spreadingAreasTable" style="height: 300px" class="ag-theme-alpine"></div>
+            </div>
+
+
+            <div id="age-gender-container" class="container">
+                <h6 class="chart-title">פיזור מאומתים לפי גיל ומגדר</h6>
+                <div class="legends-container">
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color:rgb(80, 203, 253);"></span>
+                        <div class="legend-label">גברים</div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color:rgb(182, 202, 81) ;"></span>
+                        <div class="legend-label">נשים</div>
+                    </div>
+                </div>
+                <div height="260px">
+                    <canvas id="casesByAgeAndGenderChart"></canvas>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Fourth Row -->
+        <div id="fourth-row" class="row">
+            
+            <div id="tests-to-locate-patients-container" class="container">
+                <h6 class="chart-title">בדיקות לאיתור נדבקים</h6>
+                <!-- Note banner-->
+                <div class="note-banner-container">
+                    <span class="note-icon">i</span>
+                    הנתונים אינם כוללים מידע על בדיקות לאבחון החלמה
+                </div>
+                <!-- Legends -->
+                <div class="legends-container">
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color:rgb(80, 203, 253);"></span>
+                        <div class="legend-label">בדיקות</div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-circle" style="background-color: rgb(35, 125, 125) ;"></span>
+                        <div class="legend-label">מאומתים</div>
+                    </div>
+                </div>
+
+                <div height="250px">
+                    <canvas id="testsToLocatePatientsChart"></canvas>
+                </div>
+                
+            </div>
+
+            <div id="hospital-status-container" class="container">
+                <h6 class="chart-title">סטטוס בתי החולים</h6>
+                <div id="hospitalStatusTable" style="height: 300px;" class="ag-theme-alpine"></div>
+            </div>
+            
+            <div id="staff-in-isolation-container" class="container">
+                <h6 class="chart-title">אנשי צוות בריאות בבידוד</h6>
+                <div id="staffInIsolation"></div>
+            </div>
+        </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-style@latest/dist/chartjs-plugin-style.min.js"></script>
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    <script src="https://d3js.org/d3.v3.js"></script>
+    <script src="https://d3js.org/d3-path.v2.min.js"></script>
+    <script src="https://d3js.org/d3-shape.v2.min.js"></script>
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
+    <script src="https://d3js.org/d3-color.v2.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v2.min.js"></script>
+    <script src="https://d3js.org/d3-time.v2.min.js"></script>
+    <script src="https://d3js.org/d3-time-format.v3.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v2.min.js"></script>
+    <script src="./Chart.roundedBarCharts.min.js"></script>
+    <script src='./main.js'></script>
+</body>
+</html>
